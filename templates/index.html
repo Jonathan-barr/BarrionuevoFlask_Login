@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/index.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Autenticador</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col centrar">
+                <h2>Bienvenido al sistema de autenticacion</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col centrar">
+                <h3>Porfavor selecciones las figuras en el orden que se le indico para validar que es usted</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="{{image}}" alt="gato" usemap="#areas" id="gatito" onclick="crearFigura()">
+                <map name="areas">
+                    <area shape="rect" coords="{{coordenadas[0][1]}},{{coordenadas[0][2]}},{{coordenadas[0][3]}},{{coordenadas[0][4]}}" href="#gatito" id="fig1" onclick='myFunction("{{coordenadas[0]}}")'>
+                    <area shape="circle" coords="{{coordenadas[1][1]}},{{coordenadas[1][2]}},{{coordenadas[1][3]}}" href="#gatito" id="fig2" onclick='myFunction("{{coordenadas[1]}}")'>
+                    <area shape="rect" coords="{{coordenadas[2][1]}},{{coordenadas[2][2]}},{{coordenadas[2][3]}},{{coordenadas[2][4]}}" href="#gatito" id="fig3" onclick='myFunction("{{coordenadas[2]}}")'>
+                    <area shape="circle" coords="{{coordenadas[3][1]}},{{coordenadas[3][2]}},{{coordenadas[3][3]}}" href="#gatito" id="fig4" onclick='myFunction("{{coordenadas[3]}}")'s>
+                </map>
+            </div>
+            <div class="col">
+                <h4>Seleccion</h4>
+                <h6 id="demo">Selecciones las figuras......</h6>
+                <h4>Peticion</h4>
+                <h6>{{revisar}}</h6>
+                <button type="button"  class="btn btn-success" onclick="comprobar()" >Comprobar</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script>
+        var seleccion = ''
+        var selec = []
+        var cont = 0
+        function myFunction(elem) {
+            var dato = elem.toString()
+            var res = dato.replace(/\'/g, "\"");
+            res = JSON.parse(res)
+            if (cont<5){
+                cont=cont+1
+                seleccion += res[0] + " "
+                selec.push(res[0])
+            }
+
+            document.getElementById("demo").innerHTML = seleccion;
+        }
+
+        function comprobar() {
+            comp = "{{revisar}}"
+            console.log(comp)
+            console.log(seleccion)
+            if(comp==seleccion){
+                window.alert("Se valido la informacion con exito")
+                window.location.href = "/dashboart";
+
+            }else{
+                window.alert("No se pudo autenticar")
+            }
+        }
+
+        function aleatorio() {
+            const dato1 = ''
+            const dato2 = ''
+            const dato3 = ''
+            const dato4 = ''
+            const dato5 = ''
+            comp = "Rectangulo Circulo Rectangulo Circulo Circulo "
+            console.log(comp)
+            console.log(seleccion)
+            if(comp==seleccion){
+                window.alert("Se valido la informacion con exito")
+            }else{
+                window.alert("No se pudo autenticar")
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

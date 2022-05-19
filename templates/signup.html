@@ -32,7 +32,7 @@
                          <p><span class="fontawesome-user"></span><input  name="usuario" type="text" value="Usuario"  onBlur="if(this.value == '') this.value = 'Usuario'" onFocus="if(this.value == 'Usuario') this.value = ''" required></p> 
                          <p><span class="fontawesome-user"></span><input  name="email" type="email" value="email" onBlur="if(this.value == '') this.value = 'email'" onFocus="if(this.value == 'email') this.value = ''" required></p> 
                          <p><span class="fontawesome-lock"></span><input  name="passwrd" type="Password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> 
-                         <p><span class="fontawesome-user"></span><input  name="passwrd2" type="Password" value="Password2" onBlur="if(this.value == '') this.value = 'Password2'" onFocus="if(this.value == 'Password2') this.value = ''" required></p> 
+                         <p><span class="fontawesome-lock"></span><input  name="passwrd2" type="Password" value="Password2" onBlur="if(this.value == '') this.value = 'Password2'" onFocus="if(this.value == 'Password2') this.value = ''" required></p> 
                          <p><span class="fontawesome-user"></span><input  name="date" type="date" value="Fecha nacimiento" required></p> 
                         </div>
                          <div style="float:right">
@@ -40,9 +40,9 @@
                        
                         <p><span class="fontawesome-user"></span><input name="telefono" type="tel"  value="Telefono" pattern="[0-9]{9}"  onBlur="if(this.value == '') this.value = 'Telefono'" onFocus="if(this.value == 'Telefono') this.value = ''" required></p> 
                         <p><span class="fontawesome-user"></span><input name="celular" type="tel" value="Celular" pattern="[0-9]{10}"  onBlur="if(this.value == '') this.value = 'Celular'" onFocus="if(this.value == 'Celular') this.value = ''" required></p> 
-                        <p><span class="fontawesome-user"></span><input name="pais" type="text"  value="Pais" onBlur="if(this.value == '') this.value = 'Pais'" onFocus="if(this.value == 'Pais') this.value = ''" required></p> 
-                        <p><span class="fontawesome-user"></span><input name="ciudad" type="text" value="Ciudad" onBlur="if(this.value == '') this.value = 'Ciudad'" onFocus="if(this.value == 'Ciudad') this.value = ''" required></p> 
-                        <p><span class="fontawesome-user"></span><input name="codigo_postal" type="text"  value="Codigo postal" onBlur="if(this.value == '') this.value = 'Codigo postal'" onFocus="if(this.value == 'Codigo postal') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="pais" type="text"  value="Pais" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{2,48}" onBlur="if(this.value == '') this.value = 'Pais'" onFocus="if(this.value == 'Pais') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="ciudad" type="text" value="Ciudad" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{2,48}" onBlur="if(this.value == '') this.value = 'Ciudad'" onFocus="if(this.value == 'Ciudad') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="codigo_postal" type="text"  value="Codigo postal"  pattern="[0-9]{6}" onBlur="if(this.value == '') this.value = 'Codigo postal'" onFocus="if(this.value == 'Codigo postal') this.value = ''" required></p> 
                         <p><span class="fontawesome-user"></span><input name="direccion" type="text" value="Direccion" onBlur="if(this.value == '') this.value = 'Direccion'" onFocus="if(this.value == 'Direccion') this.value = ''" required></p> 
                         <p><span class="fontawesome-user"></span><input name="genero" type="text"  value="Genero" onBlur="if(this.value == '') this.value = 'Genero'" onFocus="if(this.value == 'Genero') this.value = ''" required></p> 
                         <p class="error error--hidden"></p>

@@ -32,7 +32,7 @@ $("form[name=signup_form").submit(function(e) {
       data: data,
       dataType: "json",
       success: function(resp) {
-        window.location.href = "/dashboart";
+        window.location.href = "/validacion";
       },
       error: function(resp) {
         $error.text(resp.responseJSON.error).removeClass("error--hidden");
@@ -41,3 +41,4 @@ $("form[name=signup_form").submit(function(e) {
   
     e.preventDefault();
   });
+
