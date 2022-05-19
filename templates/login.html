@@ -1,5 +1,7 @@
 {% extends "datos.html" %} 
 {% block content %}
+
+
 <div class="container">
     <svg viewBox="10 10 1500 200">
         <symbol id="s-text">
@@ -19,13 +21,14 @@
 
     <div id="login">
    
-      <form method="post">
+      <form name="login_form">
 
         <fieldset class="clearfix">
 
-          <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-          <p><span class="fontawesome-lock"></span><input type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
-          <p><input type="submit" value="Sign In"></p>
+          <p><span class="fontawesome-user"></span><input  name="email" type="email" value="email" onBlur="if(this.value == '') this.value = 'email'" onFocus="if(this.value == 'email') this.value = ''" required></p> 
+          <p><span class="fontawesome-lock"></span><input  name="passwrd" type="Password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> 
+          <p class="error error--hidden"></p>
+          <p><input type="submit" value="Iniciar Sesión"></p>
 
         </fieldset>
 
@@ -36,4 +39,4 @@
     </div> <!-- end login -->
 
   </div>
-{% endblock %} 
+  {% endblock %} 

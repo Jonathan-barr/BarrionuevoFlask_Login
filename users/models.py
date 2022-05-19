@@ -1,10 +1,19 @@
 #from login import mongo
-import imp
-from flask import Flask,jsonify, request
+
+from flask import Flask,jsonify, request, session, redirect
 import uuid
 from passlib.hash import pbkdf2_sha256
-from tutoria import db
+import tutoria 
 class User:
+
+    def start_session(self,user):
+        del user['passwrd']
+        del user['passwrd2']
+        session['logged_in']=True
+        session['user']=user
+        return jsonify(user), 200
+
+
     def signup(self):
         #crear usuario
         user={
@@ -13,11 +22,10 @@ class User:
             "nombres":request.form.get('nombre'),
             "apellidos":request.form.get('apellido'),
             "usuario":request.form.get('usuario'),
-            "correo":request.form.get('correo'),
+            "email":request.form.get('email'),
             "passwrd":request.form.get('passwrd'),
             "passwrd2":request.form.get('passwrd2'),
             "fecha_nacimiento":request.form.get('date'),
-            "etnia":request.form.get('etnia'),
             "telefono":request.form.get('telefono'),
             "celular":request.form.get('celular'),
             "pais":request.form.get('pais'),
@@ -28,12 +36,28 @@ class User:
 
        
         }
-        
-       # Encrypt the password
+     
+        #validad si el correo ya esta registrado
+        if tutoria.db.user.find_one({ "email": user['email'] }):
+            return jsonify({ "error": "El correo ya existe" }), 400
+                 # Encrypt the password
         user['passwrd'] = pbkdf2_sha256.encrypt(user['passwrd'])
         user['passwrd2'] = pbkdf2_sha256.encrypt(user['passwrd2'])
-        db.user.insert_one(user)
-        print(request.form);
- #       mongo.users.insert(user)
-        return jsonify(user),200
+        #usuario
+        if tutoria.db.user.insert_one(user):
+          return self.start_session(user)
+
+        return jsonify({"error":"Registro Fallido"}),400
+     
+    def signout(self):
+        session.clear()
+        return redirect('/')
         
+    def login(self):
+        user = tutoria.db.user.find_one({
+            "email": request.form.get('email')
+        })
+        if user and pbkdf2_sha256.verify(request.form.get('passwrd'), user['passwrd']):
+            return self.start_session(user)
+    
+        return jsonify({ "error": "Error no existe el usuario o Credenciales erroneas" }), 400
