@@ -1,167 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="./static/css/Signup-page-with-overlay.css">
-    <link rel="stylesheet" href="./static/fonts/simple-line-icons.min.css">
-    
-    
+{% extends "datos.html" %} 
+{% block content %}
 
-    
-    <title>Registro de Usuario Nuevo</title>
-</head>
 <body>
-    
-    <div id="main-wrapper" class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-10">
-                <div class="card border-0">
-                    <div class="card-body p-0">
-                        <div class="row no-gutters">
-                            <div class="col-8 mb-0">
-                                <div class="p-5 mb-0">
-                                    <div class="mb-5">
-                                        <h3 class="h4 font-weight-bold text-theme">Registrarse</h3>
-                                    </div>
-                                    <h6 class="h5 mb-0">Rellena el Formulario a Continuación.</h6>
-                                    <p class="text-muted mt-2 mb-1">El Registro es único y solo te tomará unos minutos.</p>
-                                </div>
-                            </div>
-    
-                            <div class = "row no-gutters p-5">
-                                <div class="col-lg-6">
-                                    <form>
-                                    <div class="form-group mb-2">
-                                        <label for="yourName">Nombre</label>
-                                        <input type="text" class="form-control" id="yourName" />
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="exampleInputEmail1">Correo Electrónico</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" />
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="exampleInputPassword1">Contraseña</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" />
-                                    </div>
-    
-                                    <div class="form-group mb-2">
-                                        <label for="InputCountry">Ingresa tu País</label>
-                                        <input type="text" class="form-control" id="InputCountry" />
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <label for="PostalCode">Ingresa Código Postal</label>
-                                        <input type="text" class="form-control" id="PostalCode" />
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <label for="HomeTelNumber">Ingresa Número de Teléfono </label>
-                                        <input type="tel" class="form-control" id="HomeTelNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="02-222-2222"/>
-                                    </div>
-
-                                    <div class="form-group mb-5">
-                                        <label for="PhoneNumber">Ingresa Número de Teléfono Celular</label>
-                                        <input type="tel" class="form-control" id="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="099-999-9999"/>
-                                    </div>
-    
-                                     
-                                    <button type="submit" class="btn btn-theme">Registrarse</button>
-                                    </form>
-                                </div>
-    
-                            <div class="col-lg-6">
-                            <form>
-                                <div class="form-group mb-2">
-                                    <label for="yourName">Apellido</label>
-                                    <input type="text" class="form-control" id="yourName" />
-                                </div>
-                                <div class="form-group mb-2">
-                                    <label for="exampleInputEmail1">Dirección</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" />
-                                </div>
-                                <div class="form-group mb-2 ">
-                                    <label for="exampleInputPassword1"> Repita la Contraseña</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                                </div>
-
-
-                                <div class="form-group mb-2">
-                                    <label for="InputCountry">Ingresa tu Ciudad</label>
-                                    <input type="text" class="form-control" id="InputCountry" />
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="UsrName">Ingresa Nombre de Usuario</label>
-                                    <input type="text" class="form-control" id="UsrName" />
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="UsrCed">Ingresa su Número de Cédula</label>
-                                    <input type="text" class="form-control" id="UsrCed" />
-                                </div>
-
-
-                                <div class="form-group mb-2">
-                                    <label for="InputCountry">Tipo de Sangre</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Selecciona un Tipo de Sangre</option>
-                                        <option value="1">Tipo A</option>
-                                        <option value="2">Tipo B</option>
-                                        <option value="3">Tipo AB</option>
-                                        <option value="3">Tipo O</option>
-                                      </select>
-                                </div>
-
-                             
-
-                                <div class="form-group mb-5 ">
-                                    <label for="exampleInputPassword1"> Ingrese su Fecha de Nacimiento</label>
-                                            
-                                                <input type='date' class="form-control" />
-                                                <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                                                            
-                                       <script type="text/javascript">
-                                          $(function () {
-                                              $('#datetimepicker2').datetimepicker({
-                                                  locale: 'ru'
-                                              });
-                                          });
-                                       </script>
-                                    
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-    
-                            
-                        </div>  <!-- end card-body  row principal --> 
-                    </div>
-                    <!-- end card-body -->
-                </div>
-                <!-- end card -->
-                <p class="text-muted text-center mt-3 mb-0">Ya tienes una cuenta? <a href="/" class="text-primary ml-1">Inicia Sesión Aquí</a></p>
-                <!-- end row -->
-            </div>
-            <!-- end col -->
-        </div>
-        <!-- Row -->
-    </div>
-    
-
-    <footer class="text-center bg-dark">
+   
+    <div class="container">
+  <div class="letras">
+        <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+              <text text-anchor="middle" x="30%" y="60%">Registro</text>
+            </symbol>
         
-        <div class="container text-white py-4 py-lg-5" style="margin-top: 114px;">
-            <p class=" mb-0" >Copyright © 2022 Aulestia - Barrionuevo - Heredia - Loachamín - Revelo&nbsp;</p>
-            <p class=" mb-0">Calidad de Software&nbsp;- Universidad Politécnica Salesiana - Periodo 60<br></p>
+            <g class = "g-ants">
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+              <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+          </svg>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <div class="row">
+
+            <div  id="login">
+                     
+                <form name="signup_form">
+                    <div style=" float:left">
+                        <fieldset class="clearfix">
+                         <p><span class="fontawesome-card"></span><input  name="cedula" type="text" value="Cedula" onBlur="if(this.value == '') this.value = 'Cedula'" onFocus="if(this.value == 'Cedula') this.value = ''" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="nombre" type="text" value="Nombre" onBlur="if(this.value == '') this.value = 'Nombre'" onFocus="if(this.value == 'Nombre') this.value = ''" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="apellido" type="text"  value="Apellido" onBlur="if(this.value == '') this.value = 'Apellido'" onFocus="if(this.value == 'Apellido') this.value = ''" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="usuario" type="text" value="Usuario" onBlur="if(this.value == '') this.value = 'Usuario'" onFocus="if(this.value == 'Usuario') this.value = ''" required></p> 
+                         <p><span class="fontawesome-lock"></span><input  name="passwrd" type="Password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="passwrd2" type="Password" value="Password2" onBlur="if(this.value == '') this.value = 'Password2'" onFocus="if(this.value == 'Password2') this.value = ''" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="date" type="date" value="Fecha nacimiento" required></p> 
+                         <p><span class="fontawesome-user"></span><input  name="etnia" type="text" value="Etnia" onBlur="if(this.value == '') this.value = 'Etnia'" onFocus="if(this.value == 'Etnia') this.value = ''" required></p> 
+                        </div>
+                         <div style="float:right">
+                          
+                       
+                        <p><span class="fontawesome-user"></span><input name="telefono" type="text"  value="Telefono" onBlur="if(this.value == '') this.value = 'Telefono'" onFocus="if(this.value == 'Telefono') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="celular" type="text" value="Celular" onBlur="if(this.value == '') this.value = 'Celular'" onFocus="if(this.value == 'Celular') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="pais" type="text"  value="Pais" onBlur="if(this.value == '') this.value = 'Pais'" onFocus="if(this.value == 'Pais') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="ciudad" type="text" value="Ciudad" onBlur="if(this.value == '') this.value = 'Ciudad'" onFocus="if(this.value == 'Ciudad') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="codigo_postal" type="text"  value="Codigo postal" onBlur="if(this.value == '') this.value = 'Codigo postal'" onFocus="if(this.value == 'Codigo postal') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="sangre" type="text" value="Tipo de sangre" onBlur="if(this.value == '') this.value = 'Tipo de sangre'" onFocus="if(this.value == 'Tipo de sangre') this.value = ''" required></p> 
+                        <p><span class="fontawesome-user"></span><input name="genero" type="text"  value="Genero" onBlur="if(this.value == '') this.value = 'Genero'" onFocus="if(this.value == 'Genero') this.value = ''" required></p> 
+                        <p class="error error--hidden"></p>
+                        <p><input type="submit" value="Sign Up"></p>
+                      </fieldset>
+                        </div>
+                 
+                        </div>
+                        
+                
+                      </form>
+                   
+                      <p>Ya tienes cuenta?  <a href="/" class="blue"> Inicia sesion</a><span class="fontawesome-arrow-right"></span></p>
+                
+                    </div> <!-- end login -->
+                
+                
+                  </div>
+
 </body>
-</html>
+
+{% endblock %} 

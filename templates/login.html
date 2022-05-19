@@ -1,0 +1,39 @@
+{% extends "datos.html" %} 
+{% block content %}
+<div class="container">
+    <svg viewBox="10 10 1500 200">
+        <symbol id="s-text">
+          <text text-anchor="middle" x="40%" y="60%">Inicio de Sesión</text>
+        </symbol>
+    
+        <g class = "g-ants">
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+      </svg>
+
+    
+
+    <div id="login">
+   
+      <form method="post">
+
+        <fieldset class="clearfix">
+
+          <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+          <p><span class="fontawesome-lock"></span><input type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+          <p><input type="submit" value="Sign In"></p>
+
+        </fieldset>
+
+      </form>
+
+      <p>No tienes cuenta? <a href="/signup" class="blue">Registrate ya</a><span class="fontawesome-arrow-right"></span></p>
+
+    </div> <!-- end login -->
+
+  </div>
+{% endblock %} 
