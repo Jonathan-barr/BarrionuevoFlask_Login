@@ -160,7 +160,7 @@ svg {
   height: 50px;
 }
 
-#login form input[type="text"], input[type="password"], input[type="date"], input[type="email"] {
+#login form input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="tel"] {
   background-color: #797373;
   border-radius: 0px 3px 3px 0px;
   color: #f9f9f9;

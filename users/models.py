@@ -4,6 +4,7 @@ from flask import Flask,jsonify, request, session, redirect
 import uuid
 from passlib.hash import pbkdf2_sha256
 import tutoria 
+import geocoder
 class User:
 
     def start_session(self,user):
@@ -31,23 +32,38 @@ class User:
             "pais":request.form.get('pais'),
             "ciudad":request.form.get('ciudad'),
             "codigo_postal":request.form.get('codigo_postal'),
-            "tipo_sangre":request.form.get('sangre'),
+            "direccion":request.form.get('direccion'),
             "genero":request.form.get('genero')
 
        
         }
-     
+        
         #validad si el correo ya esta registrado
         if tutoria.db.user.find_one({ "email": user['email'] }):
             return jsonify({ "error": "El correo ya existe" }), 400
-                 # Encrypt the password
+
+        if (user['genero']!="Masculino" ):
+            return jsonify({ "error": "Genero no existente" }), 400
+
+        if (user['passwrd']!=user['passwrd2']):
+              # Encrypt the password
+            loc=geocoder.google(user['direccion'])
+            return jsonify({"error":"Las contraseñas no coinciden "}),400 
         user['passwrd'] = pbkdf2_sha256.encrypt(user['passwrd'])
         user['passwrd2'] = pbkdf2_sha256.encrypt(user['passwrd2'])
-        #usuario
+        #if (geocoder.google(user['ciudad'],user['pais'])!=user['codigo_postal']):
+          
+           # return jsonify({ "error": "Codigo postal erroneo" }), 400
+
         if tutoria.db.user.insert_one(user):
-          return self.start_session(user)
+                return self.start_session(user)
 
         return jsonify({"error":"Registro Fallido"}),400
+
+        
+               
+        #usuario
+        
      
     def signout(self):
         session.clear()
