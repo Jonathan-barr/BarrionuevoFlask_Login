@@ -43,7 +43,10 @@ class User:
             return jsonify({ "error": "El correo ya existe" }), 400
 
         if (user['genero']!="Masculino" ):
-            return jsonify({ "error": "Genero no existente" }), 400
+            if (user['genero']!="Femenino" ):
+                   if (user['genero']!="masculino" ):
+                          if (user['genero']!="femenifo" ):
+                             return jsonify({ "error": "Genero no existente" }), 400
 
         if (user['passwrd']!=user['passwrd2']):
               # Encrypt the password
